@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Lrean = () => {
+  
   let stock = 'Apple Inc.'
 
   return (

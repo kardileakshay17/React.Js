@@ -7,10 +7,24 @@ import LreanUseState from "./LreanUseState"
 import CounterApp from "./CounterApp"
 import Lreaneffect from "./Lreaneffect"
 import LearnUseMemo from "./comp/learnUseMemo"
+import ChildA from "./comp/ChildA"
+import { createContext } from "react"
+import { userContext } from "react"
+import { useState } from "react"
 
+const StockContext = createContext()
+const UserContext = createContext()
 
 function App() {
-  let price = 100
+  let stock = 'Apple Inc.'
+  let price = 150
+
+  const [user, setUser] = useState({ name: 'Akshay Kardile', age: 30 })
+
+
+  const getstock = (data) => {
+    console.log('Stock data from child component:', data);
+  }
   return (
     <>
       {/* <h3>Leran React.js</h3>
@@ -22,9 +36,15 @@ function App() {
       {/* <LreanUseState></LreanUseState> */}
       {/* <CounterApp></CounterApp> */}
       {/* <Lreaneffect></Lreaneffect> */}
-      <LearnUseMemo></LearnUseMemo>
+      {/* <LearnUseMemo></LearnUseMemo> */}
+      <StockContext.Provider value={{ stock, price }}>
+        <UserContext.Provider value={{ user, setUser }}>
+          <ChildA />
+        </UserContext.Provider>
+      </StockContext.Provider>
     </>
   )
 }
 
 export default App
+export { StockContext, UserContext }

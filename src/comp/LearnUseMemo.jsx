@@ -5,17 +5,19 @@ const LearnUseMemo = () => {
     const [number, setNumber] = useState(40000)
 
     const incrementCount = () => {
+        if (count === 10) {
+            setNumber(50000)
+        }
         setCount(count + 1)
     }
 
     const sumofNumbers = () => {
         let sum = 0
-
-        for (let i = 1; i <= number; i++) {
-            sum += i;
-        }
-        return sum;
-    }
+        for (let i = 0; i < number; i++) {
+            sum += i
+        }   
+        return sum
+    },[number] 
     
     console.log(`sum of numbers ${number}:`, sumofNumbers());
     return (

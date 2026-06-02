@@ -9,6 +9,7 @@ const ChildC = () => {
                     ({ stock, price }) => {
                         return (
                             <UserContext.Consumer>
+                                
                                 {
                                     ()=>{
                                         return(

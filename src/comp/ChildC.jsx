@@ -3,6 +3,8 @@ import { StockContext,UserContext } from '../App'
 
 const ChildC = () => {
     return (
+
+        
         <>
             <StockContext.Consumer>
                 {
